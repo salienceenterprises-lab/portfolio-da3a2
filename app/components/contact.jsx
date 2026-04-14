@@ -11,6 +11,9 @@ export default function NocturneContact({ data }) {
   const [status, setStatus] = useState("idle");
   const [focused, setFocused] = useState(null);
 
+  const hasContact = !!(data?.email || data?.github || data?.linkedin || data?.twitter || data?.website || data?.web3forms_key);
+  if (!hasContact) return null;
+
   const web3formsKey = data?.web3forms_key || "";
   const hasForm = Boolean(web3formsKey);
 
