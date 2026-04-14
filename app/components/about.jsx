@@ -13,6 +13,7 @@ const fadeUp = (delay = 0) => ({
 });
 
 export default function NocturneAbout({ data }) {
+  if (!data) return null;
   const skills = data?.skills || [];
   const flatSkills = Array.isArray(skills[0]) ? skills.flat() :
     skills.flatMap((s) => (typeof s === "object" && s.items ? s.items : [s]));
